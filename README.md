@@ -17,8 +17,8 @@ Example URL: www.domain.com/test?key=value&key2=value2
 	value: key
 	value2: key2
 
-Optional paramter: method="post"  
-This will get post data instead of get data.
+Optional parameter: method="post"  
+This will get POST data instead of GET data.
 
 ### Example:
 
