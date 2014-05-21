@@ -46,8 +46,8 @@ Tag pair:
 {/exp:pg}
 
 Output:
-value: key
-value2: key2
+key: value
+key2: value2
 
 Optional paramter: method="post"
 This will get post data instead of get data.

@@ -14,8 +14,8 @@ Example URL: www.domain.com/test?key=value&key2=value2
 
 ### Output:
 
-	value: key
-	value2: key2
+	key: value
+	key2: value2
 
 Optional parameter: method="post"  
 This will get POST data instead of GET data.
