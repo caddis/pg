@@ -6,7 +6,7 @@ A plugin to retrieve GET/POST parameters in ExpressionEngine.
 
 Example URL: www.domain.com/test?key=value&key2=value2
 
-### Single Tag/Single Parameter
+### Single Tag
 
 	{exp:pg:param key="key2"}
 
