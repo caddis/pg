@@ -1,10 +1,18 @@
-# PG 1.0.0
+# PG 1.1.0
 
-A tag pair to loop through all GET/POST parameters in ExpressionEngine.
+A plugin to retrieve GET/POST parameters in ExpressionEngine.
 
 ## Usage
 
 Example URL: www.domain.com/test?key=value&key2=value2
+
+### Single Tag/Single Parameter
+
+	{exp:pg:param key="key2"}
+
+### Output
+
+	value2
 
 ### Tag pair:
 
@@ -17,8 +25,10 @@ Example URL: www.domain.com/test?key=value&key2=value2
 	key: value
 	key2: value2
 
-Optional parameter: method="post"  
-This will get POST data instead of GET data.
+### Method Parameter
+
+Optional parameter for both the single tag and the tag pair: method="post"  
+This will fetch POST data instead of GET data.
 
 ### Example:
 

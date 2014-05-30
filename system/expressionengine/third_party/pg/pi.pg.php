@@ -2,10 +2,10 @@
 
 $plugin_info = array (
 	'pi_name' => 'PG',
-	'pi_version' => '1.0.0',
+	'pi_version' => '1.1.0',
 	'pi_author' => 'Caddis',
 	'pi_author_url' => 'http://www.caddis.co',
-	'pi_description' => 'A tag pair to loop through all GET/POST parameters.',
+	'pi_description' => 'Fetch a single request value or loop through all GET/POST parameters.',
 	'pi_usage' => Pg::usage()
 );
 
@@ -15,12 +15,14 @@ class Pg {
 
 	public function __construct()
 	{
+		// Fetch parameters
 		$method = ee()->TMPL->fetch_param('method', 'get');
 
 		$data = ($method == 'get') ? $_GET : $_POST;
 
 		$variables = array();
 
+		// Loop through all parameters
 		foreach ($data as $key => $value) {
 			$variables[] = array(
 				'key' => ee()->security->xss_clean($key),
@@ -31,13 +33,35 @@ class Pg {
 		$this->return_data = ee()->TMPL->parse_variables(ee()->TMPL->tagdata, $variables);
 	}
 
+	public function param()
+	{
+		// Fetch parameters
+		$key = ee()->TMPL->fetch_param('key', false);
+		$method = ee()->TMPL->fetch_param('method', 'get');
+
+		if ($key !== false) {
+			return ($method == 'get') ? ee()->input->get($key) : ee()->input->post($key);
+		}
+
+		return '';
+	}
+
 	function usage()
 	{
 		ob_start();
 ?>
-Example:
+A plugin to retrieve GET/POST parameters.
 
-URL: www.domain.com/test?key=value&key2=value2
+# Usage
+
+Example URL: www.domain.com/test?key=value&key2=value2
+
+Single Tag:
+
+{exp:pg:param key="key2"}
+
+Output:
+value2
 
 Tag pair:
 
@@ -49,8 +73,8 @@ Output:
 key: value
 key2: value2
 
-Optional paramter: method="post"
-This will get post data instead of get data.
+Optional parameter for both the single tag and the tag pair: method="post"
+This will fetch POST data instead of GET data.
 
 Example:
 {exp:pg method="post"}
