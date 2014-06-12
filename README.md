@@ -1,4 +1,4 @@
-# PG 1.1.0
+# PG 1.1.1
 
 A plugin to retrieve GET/POST parameters in ExpressionEngine.
 

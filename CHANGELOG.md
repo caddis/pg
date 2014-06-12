@@ -1,3 +1,9 @@
+# 1.1.1
+
+2014-06-12
+
+- Update the param tag to use XSS cleaning on GET/POST values.
+
 # 1.1.0
 
 2014-05-29
