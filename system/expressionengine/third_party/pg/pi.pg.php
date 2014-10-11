@@ -2,7 +2,7 @@
 
 $plugin_info = array (
 	'pi_name' => 'PG',
-	'pi_version' => '1.1.1',
+	'pi_version' => '1.1.2',
 	'pi_author' => 'Caddis',
 	'pi_author_url' => 'http://www.caddis.co',
 	'pi_description' => 'Fetch a single request value or loop through all GET/POST parameters.',
@@ -46,7 +46,7 @@ class Pg {
 		return '';
 	}
 
-	function usage()
+	public static function usage()
 	{
 		ob_start();
 ?>

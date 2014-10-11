@@ -2,7 +2,7 @@
 	"schema_version": "1.0",
 	"name" : "pg",
 	"label": "PG",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"types": ["plugin"],
 	"paths": {
 		"system": [
