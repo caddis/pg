@@ -1,4 +1,4 @@
-# PG 1.1.2
+# PG 1.2.0
 
 A plugin to retrieve GET/POST parameters in ExpressionEngine.
 
@@ -10,17 +10,19 @@ Example URL: www.domain.com/test?key=value&key2=value2
 
 	{exp:pg:param key="key2"}
 
-### Output
+#### Output
 
 	value2
 
 ### Tag pair:
 
-	{exp:pg}
-		{key}: {value}<br>
-	{/exp:pg}
+*Please note, the old {exp:pg} tag pair is deprecated and replaced by the following tag pair. Your existing code should be updated because a future version of PG will remove the {exp:pg} tag.*
 
-### Output:
+	{exp:pg:pair}
+		{key}: {value}<br>
+	{/exp:pg:pair}
+
+#### Output:
 
 	key: value
 	key2: value2
@@ -30,15 +32,27 @@ Example URL: www.domain.com/test?key=value&key2=value2
 Optional parameter for both the single tag and the tag pair: method="post"  
 This will fetch POST data instead of GET data.
 
-### Example:
+#### Example:
 
-	{exp:pg method="post"}
+	{exp:pg:pair method="post"}
 		{key}: {value}<br>
-	{/exp:pg}
+	{/exp:pg:pair}
+
+### Get data from a one dimensional array with param tag
+
+Example URL: www.domain.com/test?key[values]=my_value&key2=value2
+
+#### Tag
+
+	{exp:pg:param key="key" array_key="values"}
+
+#### Output
+
+	Output: my_value
 
 ## License
 
-Copyright 2014 Caddis Interactive, LLC
+Copyright 2015 Caddis Interactive, LLC
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
